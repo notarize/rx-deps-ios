@@ -33,6 +33,7 @@ let package = Package(
         .target(
             name: "RxTestDeps",
             dependencies: [
+                "RxDeps",
                 .product(name: "RxTest", package: "RxSwift"),
                 .product(name: "RxBlocking", package: "RxSwift")
             ]
