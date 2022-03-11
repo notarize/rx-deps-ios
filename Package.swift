@@ -13,7 +13,6 @@ let package = Package(
             targets: ["RxDeps"]),
         .library(
             name: "RxTestDeps",
-            type: .dynamic,
             targets: ["RxTestDeps"]
         )
     ],
