@@ -11,6 +11,11 @@ let package = Package(
             name: "RxDeps",
             type: .dynamic,
             targets: ["RxDeps"]),
+        .library(
+            name: "RxTestDeps",
+            type: .dynamic,
+            targets: ["RxTestDeps"]
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/ReactiveX/RxSwift.git", .exact("6.5.0"))
@@ -25,6 +30,13 @@ let package = Package(
                 .product(name: "RxCocoa", package: "RxSwift"),
                 .product(name: "RxRelay", package: "RxSwift"),
             ]),
+        .target(
+            name: "RxTestDeps",
+            dependencies: [
+                .product(name: "RxTest", package: "RxSwift"),
+                .product(name: "RxBlocking", package: "RxSwift")
+            ]
+        ),
         .testTarget(
             name: "RxDepsTests",
             dependencies: ["RxDeps"]),
