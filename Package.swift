@@ -7,9 +7,11 @@ let package = Package(
     name: "RxDeps",
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(name: "RxSwift",
+        .library(name: "RxDeps",
+                 type: .dynamic,
                  targets: ["RxSwift", "RxRelay", "RxCocoa"]),
-        .library(name: "RxTest",
+        .library(name: "RxTestDeps",
+                 type: .dynamic,
                  targets: ["RxTest", "RxBlocking"])
     ],
     dependencies: [],
