@@ -9,15 +9,19 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(name: "RxDeps",
                  type: .dynamic,
-                 targets: ["RxSwift", "RxRelay", "RxCocoa"]),
+                 targets: ["RxDeps"]),
         .library(name: "RxTestDeps",
                  type: .dynamic,
-                 targets: ["RxTest", "RxBlocking"])
+                 targets: ["RxTestDeps"])
     ],
     dependencies: [],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
+        .target(name: "RxDeps",
+                dependencies: ["RxSwift", "RxRelay", "RxCocoa"]),
+        .target(name: "RxTestDeps",
+                dependencies: ["RxTest", "RxBlocking"]),
         .binaryTarget(name: "RxSwift",
                       url: "https://ios-notarize-signer-sdk.s3.us-west-1.amazonaws.com/RxSwift.xcframework.13.1_6.5.0.zip",
                       checksum: "9fc340abd911766967c5f4b699da0751f7c14ed0cba66ea609d87c631a349bfa"),
